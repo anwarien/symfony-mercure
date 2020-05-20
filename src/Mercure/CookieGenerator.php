@@ -23,6 +23,10 @@ class CookieGenerator
             ->withClaim('mercure', ['subscribe' => ['*']])
             ->getToken(new Sha256(), new Key($this->secret));
 
-        return Cookie::create('mercureAuthorization', $token, 0, '/.well-known/mercure');
+        return Cookie::create(
+            'mercureAuthorization'
+            , $token, 
+            0,
+             '/.well-known/mercure');
     }
 }

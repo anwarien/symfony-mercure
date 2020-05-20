@@ -17,12 +17,10 @@ final class PublishController extends AbstractController
      */
     public function __invoke(MessageBusInterface $bus, Request $request): RedirectResponse
     {
-       /* $update = new Update('http://chat.afsy.fr/message', json_encode([
-            'message' => $request->request->get('message'),
-        ]));*/
+       
         $update = new Update('http://monsite.com/message', json_encode([
-  'user' => $request->request->get('user'),
-  'message' => $request->request->get('message'),
+            'user' => $request->request->get('user'),
+            'message' => $request->request->get('message'),
 ]));
         $bus->dispatch($update);
 
